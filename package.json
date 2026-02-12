@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "scripts": {
+    "check": "tsc",
+    "build": "esbuild src/index.ts --bundle --minify --outdir=dist",
+    "start": "npm run build && node dist/index.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.3"
+  }
+}
