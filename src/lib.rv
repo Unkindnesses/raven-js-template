@@ -1,0 +1,34 @@
+export { log, add, fibSequence }
+
+# Top-level statements execute when the module is loaded, just like JS
+println("hello from raven!")
+
+# Simple functions are easy.
+# Raven accepts any JS object and can call JS in turn.
+
+fn log(x) {
+  js.console.log(x)
+}
+
+# We can add types for TypeScript compatibility.
+
+@ts `(x: number, y: number) => Promise<number>`
+fn add(x, y) {
+  Float64(x) + Float64(y)
+}
+
+# Here's a slightly bigger function. More complex Raven types, like lists,
+# are automatically converted back to JS.
+
+fn fib(n) { fib(n-1) + fib(n-2) }
+fn fib(1) { 1 }
+fn fib(0) { 0 }
+
+@ts `(n: number) => Promise<number[]>`
+fn fibSequence(n) {
+  xs = []
+  for i = range(1, Int64(n)) {
+    append(&xs, fib(i))
+  }
+  return xs
+}

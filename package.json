@@ -2,10 +2,13 @@
   "type": "module",
   "scripts": {
     "check": "tsc",
-    "build": "esbuild src/index.ts --bundle --minify --outdir=dist",
+    "build:raven": "raven build --js --esbuild src/lib.rv",
+    "build:js": "tsc && esbuild src/index.ts --bundle --minify --format=esm --loader:.wasm=file --outdir=dist",
+    "build": "npm run build:raven && npm run build:js",
     "start": "npm run build && node dist/index.js"
   },
   "devDependencies": {
+    "@unkindnesses/raven": "github:Unkindnesses/raven",
     "esbuild": "^0.25.0",
     "typescript": "^5.9.3"
   }

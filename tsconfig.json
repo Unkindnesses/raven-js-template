@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
     "strict": true,
+    "allowJs": true,
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "module": "esnext",
+    "target": "esnext"
   },
   "include": ["src/**/*.ts"]
 }
