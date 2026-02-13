@@ -8,7 +8,7 @@
     "start": "npm run build && node dist/index.js"
   },
   "devDependencies": {
-    "@unkindnesses/raven": "github:Unkindnesses/raven",
+    "@unkindnesses/raven": "^0.4.0",
     "esbuild": "^0.25.0",
     "typescript": "^5.9.3"
   }
